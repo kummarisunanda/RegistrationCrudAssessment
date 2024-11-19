@@ -1,0 +1,21 @@
+package com.usermanagement.servlet;
+
+import com.usermanagement.dao.UserRepositoryImpl;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+
+public class UserDeleteServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        new UserRepositoryImpl().deleteUser(id);
+
+        response.sendRedirect("displayUsers.jsp");
+    }
+}
