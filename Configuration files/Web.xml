@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                             http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+    <display-name>UserManagementApp</display-name>
+
+    <welcome-file-list>
+        <welcome-file>UserFetchServlet</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet for User Registration -->
+    <servlet>
+        <display-name>UserRegistrationServlet</display-name>
+        <servlet-name>UserRegistrationServlet</servlet-name>
+        <servlet-class>com.usermanagement.servlet.UserRegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserRegistrationServlet</servlet-name>
+        <url-pattern>/UserRegistration</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for User Edit -->
+    <servlet>
+        <display-name>UserEditServlet</display-name>
+        <servlet-name>UserEditServlet</servlet-name>
+        <servlet-class>com.usermanagement.servlet.UserEditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserEditServlet</servlet-name>
+        <url-pattern>/UserEdit</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for User Deletion -->
+    <servlet>
+        <display-name>UserDeleteServlet</display-name>
+        <servlet-name>UserDeleteServlet</servlet-name>
+        <servlet-class>com.usermanagement.servlet.UserDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserDeleteServlet</servlet-name>
+        <url-pattern>/UserDelete</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for Fetching Users -->
+    <servlet>
+        <display-name>UserFetchServlet</display-name>
+        <servlet-name>UserFetchServlet</servlet-name>
+        <servlet-class>com.usermanagement.servlet.UserFetchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserFetchServlet</servlet-name>
+        <url-pattern>/UserFetch</url-pattern>
+    </servlet-mapping>
+
+    <!-- Configuring JSP Servlet -->
+    <servlet>
+        <servlet-name>jsp</servlet-name>
+        <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+        <init-param>
+            <param-name>logLevel</param-name>
+            <param-value>DEBUG</param-value>
+        </init-param>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+
+    <!-- Mapping for JSP Requests -->
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>*.jsp</url-pattern>
+    </servlet-mapping>
+
+</web-app>
