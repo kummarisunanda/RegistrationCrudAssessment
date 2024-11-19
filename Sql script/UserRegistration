@@ -1,0 +1,12 @@
+
+CREATE DATABASE UserRegistrationDB;
+use UserRegistrationDB;
+
+CREATE TABLE Registration (
+    ID INT AUTO_INCREMENT PRIMARY KEY, -- Unique identifier for each registration
+    Name VARCHAR(100) NOT NULL,       -- Full name of the registrant
+    Email VARCHAR(150) UNIQUE NOT NULL, -- Email address, must be unique
+    DateOfBirth DATE NOT NULL,         -- Date of birth
+    MobileNumber VARCHAR(15) NOT NULL, -- Contact number
+    RegistrationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Date and time of registration
+);
